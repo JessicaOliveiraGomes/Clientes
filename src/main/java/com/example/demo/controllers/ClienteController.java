@@ -17,6 +17,7 @@ import com.example.demo.dto.ClienteDTO;
 import com.example.demo.entities.Cliente;
 import com.example.demo.services.ClienteService;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -26,6 +27,9 @@ public class ClienteController {
 	
 	private final ClienteService clienteService;
 	
+	
+	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@GetMapping
 	public ResponseEntity<List<ClienteDTO>> buscarClinetes() {
 		return ResponseEntity.ok(clienteService.getClientes());

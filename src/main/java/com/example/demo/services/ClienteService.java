@@ -1,6 +1,9 @@
 package com.example.demo.services;
 
 import java.util.List;
+import java.util.Objects;
+
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -22,22 +25,27 @@ public class ClienteService {
 		return clientMapper.entidadesParaDTO(clienteRepository.findAll());
 	}
 	
+	@Transactional
 	public ClienteDTO saveCliente(Cliente cliente) {
 		return clientMapper.entidadesParaDTO(clienteRepository.save(cliente));
 	}
 	
+	@Transactional
 	public ClienteDTO updateCliente(Cliente cliente) {
 		return clientMapper.entidadesParaDTO(clienteRepository.save(cliente));
 	}
 	
+	@Transactional
 	public void deleteCliente(Long id) {
 		clienteRepository.deleteById(id);
 	}
 
+	@Transactional
 	public ClienteDTO getClienteByCpf(String cpf) {
 		return clientMapper.entidadesParaDTO(clienteRepository.findClienteByCpf(cpf));
 	}
 	
+	@Transactional
 	public List<ClienteDTO> getEnderecoByCep(String cep) {
 		return clientMapper.entidadesParaDTO(clienteRepository.findByEnderecoCep(cep));
 	}
