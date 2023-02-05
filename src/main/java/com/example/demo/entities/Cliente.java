@@ -4,7 +4,6 @@ package com.example.demo.entities;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,9 +22,11 @@ public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@ApiModelProperty(value = "Código do cliente")
 	private Long id;
-	private String nome;
 	
+	@ApiModelProperty(value = "Nome completo do cliente")
+	private String nome;
 	
 	private String cpf;
 	
