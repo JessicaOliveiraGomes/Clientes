@@ -35,30 +35,35 @@ public class ClienteController {
 		return ResponseEntity.ok(clienteService.getClientes());
 	}
 	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@GetMapping("/cpf")
 	public ResponseEntity<ClienteDTO> buscarClinetePorCpf(@RequestParam String cpf) {
 		//trocar reResponseEntity<Cliente> por ResponseEntity<ClienteDTO>
 		return ResponseEntity.ok(clienteService.getClienteByCpf(cpf));
 	}
 	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@GetMapping("/cep")
 	public ResponseEntity<List<ClienteDTO>> buscarClientePorCep(@RequestParam String cep) {
 		//trocar reResponseEntity<Cliente> por ResponseEntity<ClienteDTO>
 		return ResponseEntity.ok(clienteService.getEnderecoByCep(cep));
 	}
 	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@PostMapping
 	public ResponseEntity<ClienteDTO> saveCliente(@RequestBody Cliente cliente) {
 		//trocar reResponseEntity<Cliente> por ResponseEntity<ClienteDTO>
 		return ResponseEntity.ok(clienteService.saveCliente(cliente));
 	}
 	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@PutMapping
 	public ResponseEntity<ClienteDTO> updateCliente(@RequestBody Cliente cliete) {
 		//trocar reResponseEntity<Cliente> por ResponseEntity<ClienteDTO>
 		return ResponseEntity.ok(clienteService.updateCliente(cliete));
 	}
 	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 		clienteService.deleteCliente(id);
