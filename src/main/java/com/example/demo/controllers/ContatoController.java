@@ -16,6 +16,7 @@ import com.example.demo.dto.ContatoDTO;
 import com.example.demo.entities.Contato;
 import com.example.demo.services.ContatoService;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -25,21 +26,25 @@ public class ContatoController {
 
 	private final ContatoService contatoService;
 	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@GetMapping
 	public ResponseEntity<List<ContatoDTO>> buscarContato() {
 		return ResponseEntity.ok(contatoService.getContato());
 	}
 	
+	@ApiOperation(value = "Salva um novo cadastro de cliente")
 	@PostMapping
 	public ResponseEntity<ContatoDTO> saveContato(@RequestBody Contato contato) {
 		return ResponseEntity.ok(contatoService.saveContato(contato));
 	}
 	
+	@ApiOperation(value = "Atualiza a lista de Clientes")
 	@PutMapping
 	public ResponseEntity<ContatoDTO> updateContato(@RequestBody Contato contato) {
 		return ResponseEntity.ok(contatoService.updateContato(contato));
 	}
 	
+	@ApiOperation(value = "Deleta cliente por id")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 		contatoService.deleteContato(id);
