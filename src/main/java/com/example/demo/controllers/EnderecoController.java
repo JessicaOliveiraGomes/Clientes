@@ -16,6 +16,7 @@ import com.example.demo.dto.EnderecoDTO;
 import com.example.demo.entities.Endereco;
 import com.example.demo.services.EnderecoService;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -25,24 +26,28 @@ public class EnderecoController {
 	
 	private final EnderecoService enderecoService;
 	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@GetMapping
 	public ResponseEntity<List<EnderecoDTO>> buscarEndereco() {
 		//TODO UTILIZAR REPONSE ENTITY
 		return ResponseEntity.ok(enderecoService.getEndereco());
 	}
 	
+	@ApiOperation(value = "Salva um novo cadastro de cliente")
 	@PostMapping
 	public ResponseEntity<EnderecoDTO> saveEndereco(@RequestBody Endereco endereco) {
 		//TODO UTILIZAR REPONSE ENTITY
 		return ResponseEntity.ok(enderecoService.saveEndereco(endereco));
 	}
 	
+	@ApiOperation(value = "Atualiza a lista de Clientes")
 	@PutMapping
 	public ResponseEntity<EnderecoDTO> updateEndereco(@RequestBody Endereco endereco) {
 		//TODO UTILIZAR REPONSE ENTITY
 		return ResponseEntity.ok(enderecoService.updateEndereco(endereco));
 	}
 	
+	@ApiOperation(value = "Deleta cliente por id")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 		//TODO UTILIZAR REPONSE ENTITY
