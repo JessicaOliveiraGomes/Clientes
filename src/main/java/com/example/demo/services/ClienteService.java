@@ -25,6 +25,10 @@ public class ClienteService {
 		return clientMapper.entidadesParaDTO(clienteRepository.findAll());
 	}
 	
+	public Cliente getClienteById(Long id) {
+		return clienteRepository.findById(id).orElse(null);
+	}
+	
 	@Transactional
 	public ClienteDTO saveCliente(Cliente cliente) {
 		return clientMapper.entidadesParaDTO(clienteRepository.save(cliente));
