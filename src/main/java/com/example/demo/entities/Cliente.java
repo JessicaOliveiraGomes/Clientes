@@ -36,6 +36,9 @@ public class Cliente {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Contato> contato;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Carro> carros;
+	
 	private String senha;
 	
 }
